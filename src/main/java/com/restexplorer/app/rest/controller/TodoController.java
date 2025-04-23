@@ -37,4 +37,10 @@ public class TodoController {
         taskRepo.save(tareaActualizada);
         return "Tarea actualizada";
     }
+    @DeleteMapping("/tasks/delete/{id}")
+    public String deleteTask(@PathVariable long id){
+        Task deleteTask= taskRepo.findById(id).get();
+        taskRepo.delete(deleteTask);
+        return "Tarea eliminada";
+    }
 }
